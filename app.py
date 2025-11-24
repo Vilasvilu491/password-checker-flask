@@ -4,21 +4,17 @@ import re
 app = Flask(__name__)
 
 def check_password_strength(password):
-    # Minimum length 8
     if len(password) < 8:
         return False
 
-    # Uppercase & lowercase
     if not re.search(r"[A-Z]", password):
         return False
     if not re.search(r"[a-z]", password):
         return False
-
-    # At least one digit
+ 
     if not re.search(r"[0-9]", password):
         return False
 
-    # At least one special character
     if not re.search(r"[!@#$%^&*(),.?\":{}|<>]", password):
         return False
 
